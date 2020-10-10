@@ -7,6 +7,6 @@ class TaskRepository extends Repository implements TaskInterface{
 
     public function model()
     {
-        // TODO: Implement model() method.
+        return Task::class;
     }
 }

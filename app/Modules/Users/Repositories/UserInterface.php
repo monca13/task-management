@@ -10,5 +10,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface UserInterface extends RepositoryInterface
 {
-
+    public function getTaskList();
 }

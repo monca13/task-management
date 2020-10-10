@@ -14,4 +14,5 @@ class DBTables
     const USERS_ROLES       = 'users_roles';
     const TASKS             = 'tasks';
     const ROLES_PERMISSIONS = 'roles_permissions';
+    const TASK_ASSIGN       = 'task_assign';
 }
