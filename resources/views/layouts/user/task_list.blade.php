@@ -14,7 +14,6 @@
         @endif
     </div>
     <div class="container">
-        <div class="row">
             <table class="table table-striped table-bordered" id="myTable">
                 <thead>
                 <tr>
@@ -37,8 +36,6 @@
                     @endforeach
                 </tbody>
             </table>
-        </div><!--/. table-responsive-->
-
     </div>
 @endsection
 
