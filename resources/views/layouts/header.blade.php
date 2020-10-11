@@ -29,7 +29,14 @@
     <ul class="navbar-nav ml-auto">
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
-                <a class="fa fa-sign-out-alt" href="{{route('logout')}}">Logout</a>
+            <a class="fa fa-sign-out-alt" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
         </li>
 </nav>
 <!-- /.navbar -->
