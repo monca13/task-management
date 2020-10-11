@@ -15,13 +15,13 @@ class UserRepository extends Repository implements UserInterface
 
     public function model()
     {
-       return User::class;
+        return User::class;
     }
 
     public function getTaskList()
     {
-       $userId =  Auth::user()->getAuthIdentifier();
-       $user = $this->model->findOrFail($userId);
+        $userId = Auth::user()->getAuthIdentifier();
+        $user   = $this->model->findOrFail($userId);
 
         $tasks = $user->tasks()->get();
 
