@@ -15,7 +15,7 @@
                 <img src="{{url("dist/img/user2-160x160.jpg")}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Hello</a>
+                <a href="#" class="d-block">{{auth()->user()->name}}</a>
             </div>
         </div>
 
@@ -34,13 +34,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{url('task/create')}}" class="nav-link active">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>ADD TASK</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('task/view')}}" class="nav-link">
+                            <a href="{{url('user/task/list')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>LIST TASK</p>
                             </a>

@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        \App\Providers\RepositoryServiceProvider::class,
     ],
 
     /*

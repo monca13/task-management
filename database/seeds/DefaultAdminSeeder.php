@@ -24,7 +24,7 @@ class DefaultAdminSeeder extends Seeder
         /** @var Role $role */
         $role = $roleRepository->findByName($roleName);
         $admin = app(User::class)->updateOrCreate(
-            ['name' => 'admin','email' => 'admin@admin.com'],
+            ['name' => 'admin','email' => 'admin@admin.com','role' => 'admin'],
             [
                 'password' => Hash::make('password'),
             ]

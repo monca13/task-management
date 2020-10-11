@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Modules\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Traits\HasRoles;
 
 class LoginController extends Controller
 {
@@ -19,7 +22,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers,HasRoles;
 
     /**
      * Where to redirect users after login.
@@ -28,13 +31,28 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+//    /**
+//     * Create a new controller instance.
+//     *
+//     * @return void
+//     */
+//    public function __construct()
+//    {
+//        $this->middleware('guest')->except('logout');
+//    }
+
+    protected function authenticated(Request $request, $user)
     {
-        $this->middleware('guest')->except('logout');
+        // to admin dashboard
+        if(Auth::user()->role === 'admin') {
+            return view('layouts.admin_dashboard');
+        }
+
+        // to user dashboard
+        else if(Auth::user()->role === 'user') {
+            return view('layouts.user.user_dashboard');
+        }
+
+        abort(404);
     }
 }
