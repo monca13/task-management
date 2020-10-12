@@ -14,22 +14,15 @@ class DefaultAdminSeeder extends Seeder
     /**
      * Run the database seeds.
      *
-     * @param RoleRepository $roleRepository
-     *
      * @return void
      */
-    public function run(RoleRepository $roleRepository)
+    public function run()
     {
-        $roleName = config('roles_permissions.role.super_admin');
-        /** @var Role $role */
-        $role = $roleRepository->findByName($roleName);
-        $admin = app(User::class)->updateOrCreate(
+       app(User::class)->updateOrCreate(
             ['name' => 'admin','email' => 'admin@admin.com','role' => 'admin'],
             [
                 'password' => Hash::make('password'),
             ]
         );
-
-        $admin->assignRole($role);
     }
 }

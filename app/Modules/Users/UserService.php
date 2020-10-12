@@ -25,6 +25,6 @@ class UserService {
 
     public function getTaskList()
     {
-        return $this->repository->getTalskList();
+        return $this->repository->getTaskList();
     }
 }
